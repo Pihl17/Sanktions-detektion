@@ -1,0 +1,10 @@
+# Builds, executables and subroutine (library) files
+*.exe
+*.dll
+
+# Build mappen
+[Bb]in/
+
+# Input data filer genereret af python scriptet
+[Kk]undeOplysninger.txt
+[Ss]anctionList.txt

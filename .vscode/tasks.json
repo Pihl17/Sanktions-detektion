@@ -1,0 +1,27 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "COBOL: Build and Run",
+            "type": "shell",
+            "command": "cmd",
+            "args": [
+                "/c",
+                "cobbuild.bat \"${file}\" && \"${fileDirname}\\cobrun.bat\" \"${file}\""
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "clear": true
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}

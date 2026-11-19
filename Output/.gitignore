@@ -1,0 +1,3 @@
+# Ignorer alle filer i denne mappe, undtagen denne gitignore
+*
+!.gitignore
