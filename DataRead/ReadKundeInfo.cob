@@ -17,11 +17,11 @@
        01 FILE-OPENED      PIC X   VALUE "N".
 
        LINKAGE SECTION.
-       01 KUNDEOPLYSNINGER.
+       01 KUNDEOPLYSNING.
            COPY "DataStruktur/KundeOplysning.cpy".
        01 END-OF-FILE      PIC X   VALUE "N".
 
-       PROCEDURE DIVISION USING KUNDEOPLYSNINGER END-OF-FILE.
+       PROCEDURE DIVISION USING KUNDEOPLYSNING END-OF-FILE.
        OPEN-FIL.
        IF FILE-OPENED = "N"
            DISPLAY "ReadKundeInfo: Lukker op for kunde-fil"
@@ -31,13 +31,13 @@
        END-IF.
        
        READ-KUNDE.
-       MOVE SPACES TO KUNDEOPLYSNINGER
+       MOVE SPACES TO KUNDEOPLYSNING
        READ KUNDEFIL INTO KUNDE-RECORD
            AT END
                DISPLAY "ReadKundeInfo: Kommet til slutning af filen"
                MOVE "Y" TO END-OF-FILE
            NOT AT END
-               MOVE KUNDE-RECORD TO KUNDEOPLYSNINGER
+               MOVE KUNDE-RECORD TO KUNDEOPLYSNING
        END-READ.
        
        LUK-FIL.
