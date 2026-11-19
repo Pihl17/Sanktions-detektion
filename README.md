@@ -17,7 +17,7 @@ Python scriptet `GenFraudInfo.py` generer lister over fiktive bankkunder og sakt
 Åben comand prompt terminalen og naviger til mappen. \
 Inde i mappen, kør python scripted:
 ```
-python GenInputData.py
+python GenFraudInfo.py
 ```
 
 ## Byg og kør programmet
