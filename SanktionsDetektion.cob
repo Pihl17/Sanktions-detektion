@@ -17,7 +17,13 @@
                REFERENCE SANKTIONS-MATCH
            DISPLAY KUNDE-ID SPACE NAVN OF KUNDE " | "
                SANKTION-ID SPACE NAVN OF SANKTIONS-MATCH 
-               " (" NAVN-MATCH-PROCENT "%)"
+               " (" NAVN-MATCH-PROCENT "%)" " | "
+               FØDSELSDATO OF KUNDE " | " 
+               FØDSELSDATO OF SANKTIONS-MATCH
+               " ( " FØDSELSDATO-MATCH-PROCENT " %)"
+               " | " LAND OF KUNDE " | " LAND OF SANKTIONS-MATCH 
+               " ( " LAND-MATCH-PROCENT " %)" 
+               " | " SAMLET-MATCH-PROCENT " % "
        END-PERFORM
 
        CALL 'READKUNDEINFO' USING CONTENT KUNDE "Y".
