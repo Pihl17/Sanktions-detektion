@@ -11,14 +11,14 @@
        FILE SECTION.
        FD SANKTIONSFIL.
        01 SANKTION-RECORD.
-           COPY "DataStruktur/SanktionsPerson.cpy".
+           COPY "DataStruktur/SanktionsOplysning.cpy".
        
        WORKING-STORAGE SECTION.
        01 FILE-OPENED      PIC X   VALUE "N".
 
        LINKAGE SECTION.
        01 SANKTIONSOPLYSNING.
-           COPY "DataStruktur/SanktionsPerson.cpy".
+           COPY "DataStruktur/SanktionsOplysning.cpy".
        01 END-OF-FILE      PIC X   VALUE "N".
 
        PROCEDURE DIVISION USING SANKTIONSOPLYSNING END-OF-FILE.

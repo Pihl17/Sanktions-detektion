@@ -8,7 +8,7 @@
        01 END-OF-KUNDER        PIC X   VALUE "N".
 
        01 SANKTION.
-           COPY "DataStruktur/SanktionsPerson.cpy".
+           COPY "DataStruktur/SanktionsOplysning.cpy".
        01 END-OF-SANKTIONER    PIC X   VALUE "N".
 
        PROCEDURE DIVISION.
