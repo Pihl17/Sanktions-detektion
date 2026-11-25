@@ -24,7 +24,7 @@ if not exist bin (
 
 REM Byg og preload subroutiner
 for /f "tokens=1,2 delims=," %%a in (project\Subroutines.txt) do (
-    if [%%b]==[] (cobc -m "%%a.cob" -o "./bin/%%a.dll") else (cobc -m "%%b/%%a.cob" -o "./bin/%%a.dll")
+    if [%%b]==[] (cobc -m "%%a.cob" -o "./bin/%%a.dll" || Exit 1) else (cobc -m "%%b/%%a.cob" -o "./bin/%%a.dll" || Exit 1)
     REM preloading af subroutinerne skal gøres udenfor for loopet
     REM ellers vil miljøvariablet ikke blive ændret ordenligt
     set var=%%a
@@ -33,7 +33,7 @@ for /f "tokens=1,2 delims=," %%a in (project\Subroutines.txt) do (
 
 REM Kald cobc med de rigtige flags 
 for %%f in (%*) do (
-    cobc -I"%COBINC%" -L"%COBLIB%" -x %%f -o "bin\%%~nf.exe"
+    cobc -I"%COBINC%" -L"%COBLIB%" -x %%f -o "bin\%%~nf.exe" || Exit 1
 )
 ENDLOCAL
 goto :eof
@@ -46,3 +46,4 @@ goto :eof
 REM Giver fejl-besked og stopper scriptet
 :wrongfile
 echo Error for input %var%: Input argument doesn't match a cobol file
+Exit 1
