@@ -16,15 +16,6 @@
            IF END-OF-KUNDER NOT = "Y"
                CALL 'FINDBESTEMATCH' USING CONTENT KUNDE 
                    REFERENCE SANKTIONS-MATCH
-               DISPLAY KUNDE-ID SPACE NAVN OF KUNDE " | "
-                   SANKTION-ID SPACE NAVN OF SANKTIONS-MATCH 
-                   " (" NAVN-MATCH-PROCENT "%)" " | "
-                   FØDSELSDATO OF KUNDE " | " 
-                   FØDSELSDATO OF SANKTIONS-MATCH
-                   " ( " FØDSELSDATO-MATCH-PROCENT " %)"
-                   " | " LAND OF KUNDE " | " LAND OF SANKTIONS-MATCH 
-                   " ( " LAND-MATCH-PROCENT " %)" 
-                   " | " SAMLET-MATCH-PROCENT " % "
            END-IF
            CALL 'GEMKUNDESANKTIONSMATCH' USING
                CONTENT KUNDE SANKTIONS-MATCH END-OF-KUNDER
