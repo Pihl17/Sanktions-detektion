@@ -26,18 +26,20 @@
        PROCEDURE DIVISION USING KUNDE SANKTION CLOSE-FILE.
        
        OPEN-FIL.
-       IF FILE-OPENED = "N"
+       IF FILE-OPENED = "N" AND CLOSE-FILE NOT = "Y"
            DISPLAY "GemKundeSanktionsMatch: Lukker op for output-fil"
            OPEN OUTPUT MATCHFIL
            MOVE "Y" TO FILE-OPENED
        END-IF.
        
        UDSKRIV-KUNDE-SANKTION-MATCH.
-       STRING KUNDE SANKTION INTO KS-MATCH
-       WRITE KS-MATCH.
+       IF CLOSE-FILE NOT = "Y"
+           STRING KUNDE SANKTION INTO KS-MATCH
+           WRITE KS-MATCH
+       END-IF.
 
        LUK-FIL.
-       IF CLOSE-FILE = "Y"
+       IF CLOSE-FILE = "Y" AND FILE-OPENED = "Y"
            DISPLAY "GemKundeSanktionsMatch: Lukker for output-fil"
            CLOSE MATCHFIL
            MOVE "N" TO FILE-OPENED
